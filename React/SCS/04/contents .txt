@@ -1,0 +1,2 @@
+1. React System Setup (VS Code, Extensions, node, Vite vs CRA)
+2. Components.

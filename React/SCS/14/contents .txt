@@ -1,0 +1,2 @@
+1. ToDo List kind of thing with add, remove, update.
+But, add cards of Pokémon with their name, description, image link etc.

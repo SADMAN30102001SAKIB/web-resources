@@ -1,0 +1,4 @@
+1. Changing button color on click.
+2. After calling useState's setter(), it doesn't immediately re-renders the DOM because it first needs to check weather the VDOM is changed or not. So, immediately logging state value after setter() will not print the updated value. To see it update in console, we need useEffect.
+3. When adding an element into an array with useState, we can directly use de-structuring. But When deleting an element we need to pass a function in setter(), which will be an explicit return including filter which returns an array.
+4. map & filter both combined.

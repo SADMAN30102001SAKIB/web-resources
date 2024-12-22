@@ -1,0 +1,44 @@
+01. Everything (all reference types) in JS is an Object: 
+-> Every Class in JS is actually a Function & a Function is an Object. Class is just a syntactic sugar for prototypical inheritance & objects:
+class ExampleClass {
+    constructor(value) {
+        this.value = value;
+    }
+}
+const example = new ExampleClass(42);
+console.log(typeof ExampleClass); // "function"
+console.log(ExampleClass instanceof Function); // true
+console.log(ExampleClass instanceof Object); // true
+console.log(example instanceof ExampleClass); // true
+console.log(example instanceof Function); // false
+console.log(example instanceof Object); // true
+ExampleClass.customProperty = "I'm a class but also a function!";
+console.log(ExampleClass.customProperty);
+
+-> When you create a class, you're creating a constructor function that acts as a blueprint for objects.
+-> `Date` can be thought as a Class, that's why we create an instance of it like `new Date()`. But technically, it's a constructor function. When you create an object using new Date(), it creates an instance linked to `Date.prototype`.
+-> `Object` is also technically a constructor function. But can be thought as a class & methods like `.keys()`, `.assign()` can be thought as a static function to that class.
+-> Same with `Function`:
+    function myFunction() {}
+    myFunction.someProperty = "Hello!"; // Works like an object
+
+-> Since functions are objects, they inherit from `Function.prototype`, which provides methods like call, apply, and bind.
+-> Function is a constructor function, and like any function, it is an object, meaning it inherits from `Object.prototype`.
+-> Functions also have their own properties, like length (number of arguments expected) and name (name of the function).
+-> This means Function has all the properties and methods that come from `Object.prototype`, such as `hasOwnProperty`, `toString`, etc.
+-> Object is a built-in constructor function used to create objects. Since it's a function, it is itself an instance of Function. But not with `Array`:
+console.log(Function instanceof Object);  // true
+console.log(Function instanceof Function); // true
+console.log(Object instanceof Function); // true
+console.log(Object instanceof Object); // true
+console.log(Array instanceof Function); // true
+console.log(Array instanceof Object); // true
+console.log(Function instanceof Array); // false
+console.log(Object instanceof Array); // false
+
+-> JavaScript's Primitive types are not objects; they represent single values. However, JavaScript wraps these primitives in their object equivalents when necessary, allowing for methods and properties to be accessed temporarily.
+-> When you call a method on a primitive (e.g., toUpperCase on a string), JavaScript automatically converts the primitive to its corresponding wrapper object temporarily.
+-> When you check if a primitive type is an instance of Object, it returns false because primitives themselves are not objects.
+-> However, all functions and objects created (like arrays and user-defined objects) are instances of Object.
+
+-> Every object has a prototype, and when you access a property or method, JavaScript looks up the prototype chain until it finds the property or until it reaches the end of the chain (null).

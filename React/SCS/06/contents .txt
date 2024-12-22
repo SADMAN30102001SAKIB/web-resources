@@ -1,0 +1,2 @@
+1. Reusable components.
+2. key prop.

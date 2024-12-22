@@ -1,0 +1,33 @@
+01. NPM start (reserved by npm) & build scripts.
+
+02. JSX is not a part of core React [https://legacy.reactjs.org/docs/react-without-jsx.html]
+
+03. Parcel uses Babel to transpile JSX/TSX & turns it into React.createElement(). But, Vite uses esbuild. And, for React.createElement(), we should import React. Although, it'll work fine without import, because the build tool will handle that.
+
+04. Babel takes in a different type of JS code & coverts in into a different type of JS code. ex: Browser compatibility [https://babeljs.io/]
+
+05. In JSX we give className unlike class in HTML, because class is a reserved keyword in JS. Hence JSX is not HTML/XML in React/XML. Also, attributes should be in camelCase.
+ 
+06. () is required for multiline JSX for babel to understand what's start & end.
+
+07. Extensions: React, Prettier, ESLint, Tailwind.
+
+08. 2 types of components: class based & functional (with return & without return).
+
+09. Functional component returns a React Element after transpiling the JSX inside of it by babel.
+
+10. <Component/> should be rendered like this.
+
+11. Component composition is the process of combining smaller, reusable components together to create larger, more complex components.
+
+12. 3 Ways of writing component inside JSX. 
+
+13. Any JS expression (valid set of literals, variables, operators, and expressions that evaluates to a single value & not if-else, for/while loops, code block, variable declaration etc...) inside JSX using {}.
+
+14. We can compose components inside element or elements inside component or components inside component or elements inside element. We can also create an infinite render.
+
+15. Element vs Functional Component (Props, State Management, etc...). 
+
+16. `<Component />` & `<Component></Component>` are equivalent only when `< Component />` has no child components.
+
+17. JSX auto prevents XSS attacks. JSX sanitizes the dynamic JS data & will escape if found malicious.

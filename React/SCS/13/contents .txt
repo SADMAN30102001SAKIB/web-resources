@@ -1,0 +1,15 @@
+1. Default form behavior breaks the SPA rule. So, 
+3 ways of handling form submit:
+i) controlled components: setting a state(object of form data) on each input change.
+ii) useRef instead of DOM APIs:
+- It takes an HTML element, but majority of the time we'll initially set it up with null because useRef runs before the component loads. it returns one variable, let's say "name".
+- Then put a prop to the React element you want the reference of. ex:
+<input ref={name} type="text">Hi</input>
+- then on form submit, handle it. ex:
+const handleSubmit = (e) => {
+    e.preventDefault;
+    console.log(name.current.value);
+    console.log(email.current.value);
+}
+<form onsubmit={handleSubmit}>
+iii) react-hook-form

@@ -1,0 +1,31 @@
+01. Promise is a syntactical sugar that make the code more readable and Promise uses callback under the hood. It's just a wrapper for a value that is unknown right now but will be resolved later:
+-> Way to initialize a Promise:
+var p1 = new Promise(); ❌
+var p2 = new Promise(function()); ❌
+var p3 = new Promise(function(resolve){}); ✅
+-> Example of Promise that resolves immediately:
+```
+let p = new Promise(function (resolve) {
+  console.log("before");
+  resolve("Hanuman");
+  console.log("after");
+});
+console.log(p);
+p.then(function (data) {
+  console.log(data);
+});
+```
+outputs:
+```
+before
+after
+Promise { 'Hanuman' }
+Hanuman
+```
+
+02. Async/Await is a syntactic sugar & uses promises under the hood:
+-> If await is encountered, everything below the await will not execute unless & untill the promise is resolved. Same with the other await statements.
+-> If you don't write await - it'll return the whole promise itself.
+-> By writing await - it'll return the resolved value stored inside the promise.
+
+03. Promise is a class & it's constructor takes in a function with resolve & reject functions as parameters. The resolve, reject, then, catch, finally, all, race functions are defined in the class.

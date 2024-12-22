@@ -1,0 +1,1 @@
+1. Directly touching the DOM may cause a lot of elements to re-render (not reload) & re-rendering/repainting is a costly process. So, React introduced VDOM, for which the updates of the real DOM happens efficiently.

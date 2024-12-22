@@ -1,0 +1,33 @@
+1. Common Practice is to use src folder, where the entire app's source code will stay & public folder where the index.html, main icon will stay.
+
+2. Two types of export & import
+- default export/import, can be used only once for the same file. ex:
+export default Component
+import Component from "path"
+- named export/import usually useful for exporting multiple modules from the same file. ex:
+export const Component1
+export const Component2
+import {Component1, Component2} from "path"
+** named exports can be used as different name using the "as" keyword:
+import {Component as Comp} from "path"
+** default & named can both be used in the same file & even on the same module.
+- In "* as export", it is used to import the whole module as a component and access the components inside the module. ex:
+export const MyComponent = () => {}
+export const MyComponent2 = () => {}
+export const MyComponent3 = () => {}
+and the component is imported like:
+import * as MainComponents from "./MyComponent";
+Now we can use them in JSX as:
+<MainComponents.MyComponent />
+<MainComponents.MyComponent2 />
+<MainComponents.MyComponent3 />
+
+3. An element can have attributes such as onClick & so on, just like event listeners.
+
+4. React is fast because it manipulates the DOM very efficiently. It keeps the UI layer in sync with the Data layer.
+
+5. map(), filter(), reduce() works only on Array.
+
+6. React Hooks are simple JavaScript functions that allow functional components to have state and lifecycle features without needing to convert to class components.
+
+7. useState returns an array with two elements: a state variable & a updater function to update it. State variables allow React components to manage and store data that changes over time. Unlike normal variables, state variables trigger a re-render (replacing the old component with the new one) of the component whenever their value changes. Array de-structuring is an idiomatic way to handle this.

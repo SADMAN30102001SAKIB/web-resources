@@ -1,0 +1,14 @@
+1. Data flows from parent to children. So, if we need to share data between two or more components, then we need to create the state in their common parent component & pass data downwards to those specific children. ex:
+App => state Data
+    - Header => Favorites Count
+    - Body
+        - Movie Container => Movie cards w/ "add btn"
+    - Footer
+2. Mainly 2 types of stylings are used in industries:
+   i) CSS Modules to Separate the stylings of each component. Bundler takes all the modular css files & wrap them in a single css file and link it inside html. The class names get changed because of the bundler to avoid collision.
+    ex:
+    - create a main.modules.css file where you can write CSS styles normally.
+    - import it in the jsx file where you what to use it.
+    (ex: import style form './Body.module.css')
+    - then use it like this, className={`${style.btn} ${style.container}`}
+   ii) UI Libraries

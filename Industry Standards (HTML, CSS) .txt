@@ -1,0 +1,21 @@
+The difference between doing any task in a conventional way and doing it professionally is vast, regardless of how small the task may be.
+
+If I ask you to design a login form, how much time would it take? You will only design it using HTML, CSS. There will be only an email and password field, and a submit button.
+Will it take ten minutes, twenty minutes, or a maximum of one hour?
+
+Now, let me add some professional requirements to my request.
+🟢 It must be coded using the semantic syntax of HTML5.
+🟢 The design should be responsive for five breakpoints.
+🟢 It should support all browsers in the market.
+🟢 It should be readable on screen readers.
+🟢 Navigation should be possible using the keyboard.
+🟢 If someone wants to change properties like color, border, radius, margin, padding, etc., they should be able to do so by changing variable values without touching the design code.
+🟢 Follow proper naming conventions. You may use the BEM method.
+🟢 The code should be maintainable and adaptable, allowing other developers to easily add variants.
+🟢 Follow the single responsibility principle, where each class performs a specific task.
+🟢 The code should be readable, with necessary comments wherever needed.
+🟢 Prepare necessary documentation.
+🟢 Conduct regression testing.
+🟢 Commit after each logical change, following conventional commit messages, and maintain a change log.
+
+Now, tell me, how much time do you think it would take to create this login form?

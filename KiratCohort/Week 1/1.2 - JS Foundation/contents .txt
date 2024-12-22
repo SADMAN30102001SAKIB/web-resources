@@ -1,0 +1,57 @@
+00. The World Wide Web, often called the Web, is a system of interconnected webpages and information or collection of webpages that you can access using the Internet. 
+-> Tim Berners-Lee created HTML, HTTP, Web Server, URL, Browser & Editor, Web Hyperlink. All of them combined is WWW.
+-> Internet existed way before Web. But it was a niche. WWW made it easy for everyone to connect to internet.
+-> Crawlers made the search engine possible. 1st they crawled through the known sites & recursively went deep as they find more links & indexing/storing them in an efficient database like Elasticsearch.
+-> Indexing is the process of creating a data structure that allows for quick lookups of information.
+
+01. Why JS was interpreted & not compiled:
+-> Websites needs to ran independently on multiple platforms. So, compiling it into machine code in server needs to happen for all types of machines.
+-> It also can't compile it to bytecode in server (lower than high level code, upper than machine code but faster than high level code execution & also platform independent) like java, because then HTML also needs to be compiled as well which will arise whole new complexity but is possible. Also, different engine has it's own type of bytecode.
+-> Things needs to happen in browser level. But JS can't be compiled to machine code directly because it is dynamically typed. The compiler needs to know everything before compiling. Also directly compiling would require more time & resource as machine code is more heavy than bytecode.
+-> JS was meant to be simple, rapid starting & easy to embed into HTML, who knew it'll be this big.
+
+02. Core vs Thread:
+-> A CPU core is a physical hardware component or processing unit that can execute instructions independently. Thread is a virtual component or a logical processor that can run on a single core. Thread is like a container, where programs run. 
+-> Normally 1 core can run 1 thread but modern tech like hyper-threading every core can have 2 threads. So in a 6 core CPU, it can run 12 tasks simultaneously.
+
+03. JS runs on a single thread but the OS might not let it hold a thread forever, it can context switch between threads but at a time only 1 thread. Ex:
+for (let i = 0; i < 1000000000000; i++) {
+  continue;
+}
+Check the thread activity, no single thread will be 100% all the time, it'll context switch.
+
+04. Lexical environment determine where variables work & where they don't.
+
+05. var gets hoisted up in the local scope of it's function.
+
+06. Any value which is not primitive, will inherit from the Object class.
+
+07. JS parser will add ; automatically.
+
+08. Objects can be created using literals {} or using Object's constructor w/ new keyword.
+
+09. Objects can inherit properties from each other because of a mechanism called prototype chain. Every object has a privet property that links to exactly one prototype.
+
+10. Maps are always referencing, so to save memory weakMap is there which can be garbage collected.
+
+11. Async code runs in a separate thread pool.
+
+12. document.querySelector returns an instance of the Element class.
+
+13. In vanilla JS we write imperative code where the UI is directly mutated by JS. That's why we use frameworks that use declarative code where the UI = f(state).
+-> Declarative programming is a paradigm describing WHAT the program does, without explicitly specifying its control flow. Like Array.filter().
+-> Imperative programming is a paradigm describing HOW the program should do something by explicitly specifying each instruction (or statement) step by step, which mutates the program's state. Like creating our own filter.
+
+14. In a react component, data is reactive. Because data can be bound from JS directly to HTML. Which means any time data changes, the UI will be updated automatically.
+
+15. JS bundle can grow large in size which might affect performance & can be measured by the network waterfall in the devtools. 
+-> We can split our bundle into multiple files. Then use dynamic imports to do lazy loading when that JS code is needed.
+
+16. REST is just a principle that we can follow while building http APIs. It says:
+-> Stateless: Each request is independent and contains all necessary information.
+-> Uniform Interface: It uses standard HTTP methods (GET, POST, PUT, DELETE) and clear URIs to represent resources.
+-> Not Resource-Oriented: like /getUserData, /updateUserData.
+
+17. HTML, CSS are just inputs to the C++ program known as rendering engine which draws the output on the UI based on our input as the HTML, CSS.
+
+18. Important/Urgent Fonts needs to be pre-loaded to avoid glitch.

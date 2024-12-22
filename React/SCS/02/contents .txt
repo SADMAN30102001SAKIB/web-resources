@@ -1,0 +1,17 @@
+1. Primitive (Stack) vs Reference (Variable Name in Stack but Value in Heap)
+2. Mutability (can directly change) vs Immutability (can't be directly change)
+-> Mutability: Changing things in place, like erasing tasks in a whiteboard.
+-> Immutability: Creating new versions without changing the original, like using new sticky notes.
+-> let a = 5;
+        a = 1;
+This doesn’t mean the original value 5 was changed to 1. Instead, the variable a was simply updated to point to a new value 1 created in the memory. The number 5 remains unchanged in memory, but a no longer references it. This is why we say numbers (and other primitives) are immutable—they don’t change; we just change what the variable points to.
+Not the case with objects/arrays/function: They gets stored in the heap but their variable names are stored in the stack & they point to the stored object in the heap. While changing it, the main object gets changed in the heap directly.
+
+3. In React, state needs to update in an immutable way.
+4. Spread & Rest Operator.
+5. De-structuring.
+6. Import/Export.
+import { sum } from "./utils/sum.js"; -> no problem
+import { sum } from "./utils/sum";    -> problem without bundler
+7. Arrow functions with implicit return. But when returning an object/big component, then wrap that up with a ().
+8. map & filter returns one element at a time.

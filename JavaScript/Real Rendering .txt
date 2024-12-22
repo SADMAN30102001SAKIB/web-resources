@@ -1,0 +1,10 @@
+-> HTML Parsing (interprets & processes) to create DOM tree.
+-> CSS Parsing to create CSSOM.
+-> Scripts can be loaded asynchronously (async) or deferred (defer) to avoid blocking the HTML parsing process.
+-> The DOM and CSSOM trees are combined to build the Render Tree (It includes only the elements that need to be displayed and contains the computed styles for these elements)
+-> Reflow: The browser calculates the position and size of each element in the Render Tree.
+-> Painting: The browser fills in the pixels on the screen based on the reflow information.
+-> Compositing: If the page has complex layers (overlapping elements, animations), the engine breaks the page into layers for efficient rendering and animations. The compositing step combines these layers into a single image that is displayed on the screen.
+-> JS engine parses/converts the source code into tokens to convert the JS code into an AST which prepares it for execution and then executes the script.
+-> The browser sets up event listeners and handles user interactions such as clicks, keyboard input, and gestures.
+-> Any changes made by JavaScript to the DOM that affect layout or styling may trigger additional reflows and repaints.

@@ -1,0 +1,192 @@
+Inside src we can have [https://blog.webdevsimplified.com/2022-07/react-folder-structure]:
+i) assets folder for all images, fonts, icons or any media files & global CSS etc.
+/assets
+  ├── images
+  │   ├── logo.png
+  │   └── background.jpg
+  ├── fonts
+  │   ├── Roboto-Regular.ttf
+  │   └── OpenSans-Bold.ttf
+  └── icons
+      ├── search.svg
+      └── close.svg
+ii) styles folder for CSS/SCSS or other global styling files.
+/styles
+  ├── globals.css
+  ├── theme.js
+  └── variables.scss
+But, each component can also have their own separate style file:
+├── /components
+| ├── /Button
+| | ├── Button.jsx
+| | ├── Button.module.css
+| | ├── Button.test.js
+iii) components folder for all global components (good to keep 1 component in 1 file & name it same as the component). Good to group multiple Components into a folder inside components like form folder can have multiple form related Components & each Component can be in a separate file with it's styles file, test file etc. Optional to use .JSX/.TSX.
+/components
+  ├── Button
+  │   ├── Button.jsx
+  │   └── Button.module.css
+  ├── Header
+  │   ├── Header.jsx
+  │   └── Header.module.css
+  └── Footer
+      ├── Footer.jsx
+      └── Footer.module.css
+iv) pages/screens folder for web/mobile app which has the specifiq page's/screen's main file & related components/hooks/contexts/styles file and _test_ folder uniqe to that specifiq page/screen only.
+/pages
+  ├── Home
+  │   ├── Home.js
+  │   └── Home.module.css
+  ├── About
+  │   ├── About.js
+  │   └── About.module.css
+  └── Contact
+      ├── Contact.js
+      └── Contact.module.css
+v) routes/router folder for the routing configuration for the application, defining how different URLs map to different components. (if you're using React Router or the like).
+/routes
+  ├── index.js
+  ├── PrivateRoute.js
+  └── routesConfig.js
+vi) features folder for super large app. It has the replica of the src folder for each fetures. Then the pages/screens folder won't have folders for each page/screen, rather it'll have the direct page's/screen's file. ensuring that the codebase is modular(independent unit). All features are part of a single deployable unit (monolithic frontend/SPA).
+/features
+  ├── user
+  │   ├── components
+  │   │   └── UserProfile.js
+  │   ├── hooks
+  │   │   └── useUser.js
+  │   └── utils
+  │       └── userHelpers.js
+  └── auth
+      ├── components
+      │   └── LoginForm.js
+      ├── hooks
+      │   └── useAuth.js
+      └── utils
+          └── authHelpers.js
+** In Big Techs, Micro Frontends take modularity a step further by splitting the frontend into smaller, independently deployable units. Each Micro Frontend is a self-contained application that can be developed, deployed, and scaled independently. This approach is typically used in very large applications where different teams are responsible for different parts of the application.
+/microfrontends
+  ├── user-profile
+  │   ├── src
+  │   │   ├── components
+  │   │   ├── hooks
+  │   │   └── utils
+  │   └── package.json
+  ├── dashboard
+  │   ├── src
+  │   │   ├── components
+  │   │   ├── hooks
+  │   │   └── utils
+  │   └── package.json
+  └── admin-panel
+      ├── src
+      │   ├── components
+      │   ├── hooks
+      │   └── utils
+      └── package.json
+Different Micro Frontends can use different technology stacks if needed. Each Micro Frontend can be scaled independently. Ex: E-Commerce App with it's CMS & Feedback System.
+vii) layouts folder for components that are reused a lot like header, sidebar, footer, slider, drawer, pop-ups etc.
+/layouts
+  ├── HeaderLayout
+  │   ├── HeaderLayout.js
+  │   └── HeaderLayout.module.css
+  ├── SidebarLayout
+  │   ├── SidebarLayout.js
+  │   └── SidebarLayout.module.css
+  └── FooterLayout
+      ├── FooterLayout.js
+      └── FooterLayout.module.css
+viii) utils folder for organizing reusable code. It serves as a central location for helper/pure functions(small, focused functions that perform common tasks like data validation, formatting, or manipulating strings. Ex: functions to check if a string is an email address, format a date, or convert a number to a currency format), miscellaneous code that can be used throughout your project.
+/utils
+  ├── formatDate.js
+  ├── calculateAge.js
+  └── fetchData.js
+ix) data folder for storing app's all constant variables, .JSON files.
+/data
+  ├── constants
+  │   ├── url.js
+  └── mocks
+      ├── users.json
+      └── posts.json
+x) api folder for logic that communicates with the server(s).
+/api
+  ├── userApi.js
+  └── authApi.js
+xi) services folder might be used interchangeably with /api for handling API calls. Services keeps the implementation details of interacting with external resources.
+/services
+  ├── apiClient.js
+  ├── userService.js
+  └── authService.js
+xii) hooks folder for custom React hooks for shared logic.
+/hooks
+  ├── useFetch.js
+  ├── useAuth.js
+  └── useDebounce.js
+xiii) contexts folder containing files related to managing global state using the React Context API.
+/contexts
+  ├── AuthContext.js
+  └── ThemeContext.js
+xiv) states/store folder for global state management logic (ex: Zustand) or reducers, store, actions, selectors folders for Redux-specific logic.
+/states
+  ├── reducers
+  │   ├── authReducer.js
+  │   └── userReducer.js
+  ├── store.js
+  ├── actions
+  │   ├── authActions.js
+  │   └── userActions.js
+  └── selectors
+      ├── authSelectors.js
+      └── userSelectors.js
+xv) _tests_ folder for Unit tests and other kinds of tests for your code should be place adjacent to the thing it's testing.
+/tests
+  ├── unit
+  │   ├── Button.test.js
+  │   └── Header.test.js
+  ├── integration
+  │   ├── UserProfile.test.js
+  │   └── LoginForm.test.js
+  └── e2e
+      ├── app.test.js
+      └── authFlow.test.js
+xvi) config folder for storing environment configurations in config.js. Ex- Environment Variables (e.g., development.env, production.env, etc), Application Configuration (default language, theme options, etc), Third-Party Library Configuration (WebPack, Babel, etc).
+/config
+  ├── webpack
+  │   ├── webpack.common.js
+  │   ├── webpack.dev.js
+  │   └── webpack.prod.js
+  ├── env
+  │   ├── development.js
+  │   └── production.js
+  ├── eslint.js
+  ├── babel.js
+  └── constants.js
+xvii) types folder for general TypeScript types, enums and interfaces.
+/types
+  ├── userTypes.ts
+  └── apiTypes.ts
+xviii) lib folder for creating our own libraries, e.g. modules for DOM manipulation (selecting elements, adding event listeners), local storage/IndexedDB access, or utility functions specific to a library like Axios (for making HTTP requests) or React Router (for navigation). It's an implementation of the facade pattern. 
+/lib
+  ├── dom
+  │   └── manipulateDom.js
+  ├── storage
+  │   └── localStorage.js
+  └── indexedDb
+      └── index.js
+Or, contains reusable utility functions, modules, or components that are generic and can be used across different parts of the application.
+/lib
+  ├── utils
+  │   └── dateFormatter.js
+  ├── hooks
+  │   └── useFetch.js
+  └── components
+      └── Button.js
+xix) docs folder for storing documentation related to the project.
+/docs
+  ├── README.md
+  ├── architecture.md
+  └── design.md
+xx) middleware folder for storing middleware functions if you're using middleware in your state management (like Redux Thunk or Redux Saga).
+/middleware
+  ├── authMiddleware.js
+  └── loggerMiddleware.js

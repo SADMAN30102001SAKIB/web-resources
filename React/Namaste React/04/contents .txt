@@ -1,0 +1,44 @@
+1. When using a module bundler, you can't directly give the path in the src attribute of an img tag like src="./logo.png". This is because parcel needs to know about all the dependencies your project has, including images. By using import logo from './logo.png', parcel can handle the image correctly for bundling and optimization.
+
+2. <React.Fragment></React.Fragment> vs <></>.
+
+3. 3 Ways of writing CSS: 
+i) Inline CSS in JSX as a JS object of key-value pairs.
+ii) Separate file which will be added in the HTML/JSX. 2 Types: Global CSS & CSS Modules.
+iii)
+[a] Libraries (Highly customizable collection of CSS styles: Tailwind CSS{utility first CSS frameworks. A utility is a pre-defined CSS class}, Bootstrap).
+[b] Component Libraries (Moderately customizable, reusable, pre-designed UI components: MUI, Bootstrap, Ant Design, Chakra UI, Radix UI, shadcn/ui).
+[c] Frameworks (Moderately customizable comprehensive toolkit that includes predefined styles and often additional JavaScript components: Bootstrap, Materialize).
+
+4. Props are just argument to a function. React will wrap the props & pass it as an object. 
+
+5. Object de-structuring.
+
+6. Config Driven UI: It's a UI that is built using a configuration file or data structure, rather than being hardcoded. The UI is driven by data. Data/Config may come from API. This allows us to create different UIs based on different regions/browsers/etc... 
+
+7. Optional Chaining.
+
+8. Map Method.
+
+9. When looping through a list of items, to uniquely represent a React Element, we have to give it a key.
+- Because all of these looped items will come in the same level in the tree.
+- Without key prop, React will not know which item is which.
+- So, if a new item came in between those already existing items or an item is deleted, React will not identify the new coming item. Hence it'll clear the entire level of items from the tree & will render all the items.
+- This gives a huge performance hit. Ex: Infinite scroll.
+- Adding key, now React will know that which items are already rendered & will only render which is updated.
+
+10. If the order of items in the list changes, the dynamically added indexes will also change as they are not stable.
+- Changes in the order of items change the index because the index represents the position of an item in the array. When the order of items is altered, the position of each item within the array also changes, thus changing their respective indexes
+- const items = ['A', 'B', 'C', 'D'];
+'A' -> index 0
+'B' -> index 1
+'C' -> index 2
+'D' -> index 3
+const items = ['D', 'B', 'A', 'C'];
+'D' -> index 0
+'B' -> index 1
+'A' -> index 2
+'C' -> index 3
+The indexes have changed due to the change in the position of items within the array.
+- If you have a truly static list that will never change, using indexes as keys could work.
+- So, hardcoding the indexes directly in the listData is the better option since they never change but the best practice is to use unique and stable identifiers that do not depend on the position of items in the list (random numbers).

@@ -1,0 +1,17 @@
+{
+  "name": "New Folder",
+  "type": "module",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

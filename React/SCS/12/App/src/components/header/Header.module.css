@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 100px 20px;
+  background-image: linear-gradient(to right, #123456, #345678);
+  color: #ffffff;
+}
+
+.favourite {
+  background-color: rgb(242, 131, 75);
+  font-size: larger;
+  padding: 5px 10px;
+  border-radius: 15px;
+}

@@ -1,0 +1,3 @@
+1. onClick(()=>setVal((prev)=>!prev)) is better than onClick(()=>setVal(!val))
+2. Image Slider.
+3. react-icons website.

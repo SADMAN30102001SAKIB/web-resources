@@ -1,0 +1,42 @@
+.card {
+  width: 10%;
+  height: 20%;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  padding: 15px;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.remove {
+  background-image: linear-gradient(to right, #dd0000, #ee0000, #ff0000);
+}
+
+.add {
+  background-image: linear-gradient(to right, #005fdd, #007bee, #0098ff);
+}
+
+.add:hover {
+  background-image: linear-gradient(to left, #005fdd, #007bee, #0098ff);
+  cursor: pointer;
+}
+
+.remove:hover {
+  background-image: linear-gradient(to left, #dd0000, #ee0000, #ff0000);
+  cursor: pointer;
+}

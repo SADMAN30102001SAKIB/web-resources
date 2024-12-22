@@ -1,0 +1,2 @@
+1. Conditional Rendering (ex: Food cards with stock/out-of-stock)
+2. Event Handling. on"X" event shouldn't take function call rather the reference. (ex: onClick(setVal(true)) is not valid but onClick(()=>setVal(true)) is)

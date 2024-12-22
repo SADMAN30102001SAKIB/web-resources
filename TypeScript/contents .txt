@@ -1,0 +1,3 @@
+01. tsc does 2 things. i) type checking & ii) .ts to .js, which is slow. But, esbuild is faster in transpiling part. So, tsc + esbuild is best for bigger projects.
+Vite uses esbuild to transpile TypeScript into JavaScript which is about 20~30x faster than vanilla tsc.
+02. esbuild is just a minimalistic bundler, that only takes inputs & spits out the output. It doesn't do all types of things like other bundlers. It's only for speed.

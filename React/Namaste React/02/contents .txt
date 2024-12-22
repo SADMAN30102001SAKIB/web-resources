@@ -1,0 +1,52 @@
+01. NPM is a Software Registry/Command Line Client/JavaScript Package Manager. 
+When doing `npm install`, it first constructs a graph to manage and resolve dependencies, then it creates a tree-like structure to lay out these dependencies in the node_modules directory. The tree does not fully represent the complexity of the original dependency graph but provides a practical way to organize dependencies for installation and usage. The tree structure is necessary to handle the file system organization.
+
+02. Dependencies vs Dev-Dependencies (-D) & Transitive Dependencies.
+
+03. package.json (project manifest / configuration) and package-lock.json (record of the exact versions of all dependencies & a hash ensuring consistent dependency installations across environments).
+
+04. SemVer (Semantic Versioning) in package.json.
+
+05. Build Tools manages all other packages for bundling, compiling, minification, code splitting, HMR other tools to make the app production ready.
+
+* Build tools like Vite/Parcel/WebPack with their dev servers play a crucial role in enabling SPAs with multiple routes to function without a real server during development. But Client-side routing within your application takes over, using the Browser's History API and virtual DOM manipulation to handle navigation between routes.
+
+06. npm vs npx. npx is a part of npm.
+
+07. unpkg CDN (fetches package over internet, script is called from HTML) vs NPM (install package in local machine, can easily updates & manage all dependencies because of package.json & package-lock.json, supports the modular way of modern development).
+
+08. ESModule's default async behavior is ok because build tools often employ techniques like code splitting and lazy loading to minimize blocking the DOM load. In small raw JS projects, working with browser scripts with defer is preferred & in framework or big projects that use ESMs, the specific use of defer or async becomes less relevant. Also async improves initial loading time. 
+[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type], [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules]
+
+09. node_modules, .parcel_cache, dist should be ignored while pushing to git
+* Parcel
+- Bundling - reduces the number of HTTP requests needed to load a webpage
+- Local Server
+- File Watching Algorithm -> written in C++
+- HMR -> Hot Module Replacement - This is a feature that allows the updated modules to be replaced in the browser without a full page reload, preserving the state of your application.
+- Caching for Faster Builds
+- Diagnostic
+- HTTPS
+- Different dev (takes less time build, less optimization) and prod bundles (takes more time to build, more optimization)
+* In Production:
+- Image Optimization
+- Minification
+- Compress
+- Consistent Hashing
+- Code Splitting -> allows large bundles to be broken down into smaller chunks that are loaded on-demand
+- Differential Bundling -> support older browsers
+- Tree Shaking -> remove unused code
+- etc etc .. [https://parceljs.org], [https://parceljs.org/features/production/]
+
+10. browserlists is an npm package comes with parcel. It makes the app compatible for the specific versions configured. It might or might not work on other versions, but it'll definitely work on the configured versions. But, making it compatible for all the browsers will make our bundle heavy. So, we should come to a sweet spot, let's say "last 10 chrome versions" or "last 5 versions" which means all the browser's last 5 versions & should cover 90% of the users. There's a query-composition GitHub link in their website where we can find all types of configurations we can give. ex: regional based support & many more. [https://browserslist.dev]
+
+11. Need to remove entry point app.js while building
+
+* Vite:
+- Act as project scaffolding tool. 
+- Provides the initial setup and configuration to quickly get started with a new project. 
+- Parcel bundles & build the app both in dev & prod, but Vite doesn't bundle the app during development, it still serves files as native ES modules using ESBuild written in GO which transpiles JSX.
+- For production, it performs a full bundling process using Rollup.
+- Parcel's main focus is zero-config experience which is why it does most of the heavy lifting, while Vite's focus is in fast development, that's why it delegates most of the heavy lifting to other tools like a governor.
+
+* Setup Babel & Webpack [https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658]

@@ -1,0 +1,72 @@
+JS Runtime has JS Engine, Call Stack, Heap, Event Loop, Macro & Micro Task Queues, APIs. JS Engine has Interpreter, JIT Compiler, Garbage Collector & It also manages the Call Stack & Heap.
+-> 1st JS gets downloaded by the browser as a byte stream (sequence of bytes) & then the browser decodes it by using a decoder to get raw JS code.
+
+-> If the JS is a module, then it'll be loaded asynchronously otherwise synchronously by default. But will get executed synchronously (block HTML parsing). But CSSOM creation blocks JS parsing & rendering, it has high priority.
+
+-> The JS runtime works side by side with the rendering engine.
+
+-> Once the JS code is loaded, the parser performs lexical analysis (tokenization) followed by syntax analysis, converting the code token by token into an Abstract Syntax Tree (AST). If AST can't be made, that means the code contains syntax errors & the parser will throw corresponding errors during this phase.
+
+-> Then JS Engine uses the interpreter to convert the AST into bytecode. This bytecode is 1st scanned by the Interpreter for the first time in the creation phase & creates the global execution context, hoisting variable and function declarations, and setting up the scope chain.
+
+-> Then In the execution phase, the actual code gets executed line by line by the interpreter.
+
+-> Ignition interprets the bytecode and translates it into specific instructions for the CPU on-the-fly. This means that Ignition is constantly running a loop to interpret and execute the bytecode using the CPU, but the CPU is following the orders of Ignition, not the bytecode itself.
+
+-> At 1st global context is pushed to call stack & v8 starts executing it. Global context's variables & functions are stored in the call stack/heap depending on if it's primitive or reference. But big primitives like large string might get stored in heap. But references to the heap's data are always stored in the stack. It lasts for the lifetime of the program.
+
+-> For any function call when executing global/local context, JS Engine creates a local execution context & pushes the frame to the call stack & pops it out after execution (the stack is empty when the global context is removed). The Actual Function/Object gets stored in the Heap, but a reference is there in the call stack.
+
+-> Global control statements are not pushed. They are the part of the global context & get directly executed by the Interpreter, but their inside code gets pushed.
+
+-> Any async code also gets pushed to the call stack but not to be executed but only to be handed over to the browser's APIs which then gets handled & the result gets enqueued in the one of the task queues based on the type of the async task (Promise based callbacks in microtask queues which have a higher priority than microtask queue which holds timers, navigation, events, etc). And then that task gets pushed to the call stack when empty managed by the Event Loop.
+
+-> Event Loop checks the call stack if it's empty or not & pushes the task from the queues based on priority to the stack. Node.js handles async I/O with libuv, which provides its own event loop model, including worker threads for non-blocking operations.
+
+-> After running a while, Hot Code is identified & compiled to highly optimize machine code by the JIT Compiler. Also, Garbage collector frees up memory automatically using the mark-and-sweep algorithm.
+
+-> If the assumptions made by v8 (like a stable object shape) turns out to be wrong (like a sum function suddenly takes string as input), then the compiler can deoptimize and again the interpreter converts it to bytecode & executes.
+
+-> V8 uses caching for storing various intermediate results so that the engine doesn’t have to repeat expensive operations. There are 3 main types of caching in V8 that help improve performance:
+(i) Parsed Code Caching: To avoid parsing the same script multiple times, V8 caches the result of this parsing. If the same script is encountered again (upon a page reload or similar script being imported) JS skips the AST creation phase & uses cached data.
+(ii) Compiled Code Caching: V8 stores this optimized machine code in a cache. When the same code is needed again, V8 retrieves it from the cache, bypassing the need to recompile it. Useful when web apps reloads.
+(iii) Data Caching: It refers to storing the results of expensive data retrieval operations so that subsequent requests for the same data can be served more quickly. Like, HTML, CSS, JS, Images, JSON etc files or Pre calculated data:
+function getValue(obj) {
+  return obj.a;
+}
+const obj1 = { a: 1 };
+const obj2 = { a: 2 };
+// First call performs a full lookup
+console.log(getValue(obj1)); // Cache created for obj1.a
+// Second call uses inline caching
+console.log(getValue(obj1)); // Fast access via cache
+// Now changing the object structure
+obj1.a = 3; // Updating property
+console.log(getValue(obj1)); // Cache may be invalidated, full lookup again
+
+-> Inlining is an optimization technique where small or frequently called functions are replaced directly with their body at the call site, eliminating the overhead associated with function calls (such as jumping to the function and managing the call stack):
+function fn1(a, b) { 
+  return a + b;
+}
+function fn2(n) { 
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += add(i, i); // Function call overhead each iteration
+  } 
+}
+Into:
+function sumUpTo(n) {
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += i + i; // Inlined version without function call overhead
+  }
+  return sum;
+}
+
+-> Copy elision is an optimization technique used by compilers, including those for JavaScript engines like V8, to eliminate unnecessary copies of objects and data during program execution:
+function createObject() {
+    return { a: 1 }; // Returns a reference to the object
+}
+const obj3 = createObject(); // No copy is made here, rather it points to the that obj.
+
+-> The browser engine acts as the central controller or mediator between the user interface (UI), rendering engine, JavaScript runtime, and other components. It doesn't handle everything directly but rather coordinates and sends user events to the appropriate system, like the JavaScript runtime or rendering engine.

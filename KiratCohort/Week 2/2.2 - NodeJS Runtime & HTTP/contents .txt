@@ -1,0 +1,19 @@
+01. HTTP is a communication protocol that lets client & server to communicate. 
+
+02. Express by default doesn't parse the body of the request because, it needs to know 1st in which format the data is coming. That's why we need to use middleware to tell express.
+
+03. URI is a pointer to a file/resource. The resource can be present locally or remotely. If it's present locally, then we mention file path (can be in the hard disk/RAM). For remote we use URL. So, to generalize we just say URI. But, data URI holds the info within itself, maybe as a base64 text of an image.
+
+04. JavaScript is sent from the server as byte stream. But that doesn't mean it was sent chuck by chunk. Byte stream just means sequence of bytes. There's 2 ways of sending data from client to server or server to client. 
+-> At one go: Usually from client to server. ex: formData. Server also sent data at one go unless explicitly mentioned.
+-> As Streams: Usually from server to client. ex: JS, JSON, videos.
+
+05. Status codes:
+-> 200 - everything is fine
+-> 300 - redirection
+-> 404 - not found
+-> 411 - input is incorrect
+-> 403 - not allowed or denied access
+-> 500 - server side problem
+
+06. If the request succeeds without errors, sending a JSON response although empty is essential to signal completion to the client (i.e Postman). An empty response might leave Postman hanging and loading continuously.

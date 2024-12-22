@@ -1,0 +1,26 @@
+01. VS-Code: Emmet
+
+02. Hello World with HTML -> JS -> React.
+
+03. React Dev vs Prod File Size: [https://unpkg.com/browse/react@18.3.1/umd/] - Because in development lots of diagnostics, errors & other things needs to be done.
+
+04. Why frameworks doesn't have CDN but react does? - Frameworks have lots of dependencies which needs to be managed & they mostly have Dynamic Content Generation which requires server-side processing & also has other features, which CDNs can't handle because it only delivers static content & React is a just a package.
+
+05. Difference between a Library and Framework - Libraries work independently within a project just like a price of code, but framework is where the project needs to be built on. It dictates the overall application architecture.
+
+06. crossorigin in script tag - By default, browsers restrict scripts from one origin (website) from accessing resources from another origin (domain, protocol, or port) to prevent malicious scripts from stealing data or performing unauthorized actions on your website.
+Without crossorigin: The browser might block the script execution entirely or provide limited functionality.
+With crossorigin: The browser initiates a CORS preflight request to the server hosting the external script. This preflight request checks if the server allows the script from your origin to access its resources.
+The crossorigin attribute can have different values:
+i) anonymous: Allows the script to load but restricts access to cookies or authorization headers.
+ii) use-credentials: Allows the script to access cookies and authorization headers along with the script itself.
+
+07. Difference between React and ReactDOM - Just like why OS doesn't with pre-installed drivers, because core React is used in different domains like mobile.
+
+08. async and defer
+
+09. In CSS - React Styling Will have Higher Precedence, because that's inline
+
+10. ReactDOM.createRoot() creates a container where the entire React application is rendered into the DOM. It returns a root, which is an instance of a class or an object which manages a FiberRootNode, the entry point of our app.
+
+* React.createElement() - Returns a React element/immutable JS Object & .render() converts it to DOM element & displays it to the UI. It's part of the React API. [https://react.dev/reference/react/createElement]

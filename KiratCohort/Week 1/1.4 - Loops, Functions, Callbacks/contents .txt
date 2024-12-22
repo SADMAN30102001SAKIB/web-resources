@@ -1,0 +1,17 @@
+01. We can manually bind a normal function's this with something which is confusing, that's why arrow functions are introduced.
+-> Normal functions can dynamically bind this based on who/how it is being called. 
+-> But, arrow functions don't have their own this binding, it gets it from it's parent. 
+-> Arrow functions isn't hoisted. Arrow functions can't be used to create constructor. 
+-> Arrow functions are not declared, they're just stored in variables. 
+-> Arrow functions are always anonymous.
+-> Arrow functions can't accept duplicate parameter name.
+
+02. Functions are just objects, which means they can also be used as expression (assigned to a variable or used as a Higher order function/Callback function/Closure).
+
+03. Closures can access it's parent function's data even after the initial function call. Because that data will be on the heap.
+
+04. Call stack is the browser's short term memory for handling function calls.
+
+05. This is a keyword that always references an Object.
+
+06. Primitives are passes by value (actually reference). But, Objects are passes by reference.

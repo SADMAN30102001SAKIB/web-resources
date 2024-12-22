@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background-color: #f0f0f0;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  display: flex;
+}
+
+header {
+  color: #fff;
+  background-image: linear-gradient(to right, #123456, #345678);
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  display: flex;
+}
+
+header div {
+  align-items: center;
+  display: flex;
+}
+
+header div img {
+  height: 50px;
+}
+
+.company-name {
+  margin-left: 10px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  color: #fff;
+  margin: 0 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+nav ul li:hover {
+  cursor: pointer;
+  color: #fc0;
+  transform: scale(1.1);
+}
+
+.body {
+  background-color: #f0f0f0;
+  padding: 5%;
+  font-family: Arial, sans-serif;
+}
+
+.search-bar {
+  justify-content: center;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.search-bar-container {
+  border-radius: 50px;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+}
+
+.search-bar input {
+  border: none;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  width: 400px;
+  padding: 15px;
+  font-size: 18px;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.search-bar button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #0af;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-bar-container:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px #00000026;
+}
+
+.filter-btn {
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-right: 1%;
+  display: flex;
+}
+
+.filter-btn button {
+  color: #fff;
+  cursor: pointer;
+  background-image: linear-gradient(to right, #005fdd, #007bee, #0098ff);
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px #0003;
+}
+
+.filter-btn button:hover {
+  background-image: linear-gradient(to left, #005fdd, #007bee, #0098ff);
+}
+
+.cards-container {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  place-items: center;
+  gap: 10px;
+  padding-top: 15px;
+  display: grid;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 95%;
+  height: 95%;
+  margin-bottom: 20px;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px #00000026;
+}
+
+.card-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 10rem;
+  display: block;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h2 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.card-content p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.food-tags {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.food-tag {
+  color: #fff;
+  white-space: nowrap;
+  background-image: linear-gradient(to right, #005fdd, #007bee, #0098ff);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.food-tag:hover {
+  background-image: linear-gradient(to left, #005fdd, #007bee, #0098ff);
+}
+
+.card-info {
+  justify-content: space-between;
+  padding: 15px;
+  display: flex;
+}
+
+.card-info-item {
+  color: #323232;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bolder;
+}
+
+.site-footer {
+  color: #fff;
+  text-align: center;
+  background-color: #333;
+}
+
+.footer-content {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px 20px 20px 9%;
+  display: flex;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 160px;
+  margin: 10px;
+}
+
+.footer-section h4 {
+  color: #f8f9fa;
+  margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section a {
+  color: #adb5bd;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #f8f9fa;
+}
+
+.social-links a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.footer-bottom {
+  color: #adb5bd;
+  background-color: #222;
+  padding: 10px 0;
+  font-size: 14px;
+}
+/*# sourceMappingURL=index.40f091a3.css.map */

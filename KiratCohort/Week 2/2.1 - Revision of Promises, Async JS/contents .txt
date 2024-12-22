@@ -1,0 +1,26 @@
+01. We need to import `fs`, `os` or other libraries but not setTimeout/fetch. Because fs/os they are not used as aggressively as setTimeout/fetch. That's why they are not in the global scope.
+
+02. A file is a collection of same type of data / sequence of bytes:
+-> A file format is the structure or layout of data within a file (raw texts). Text file formats include .txt, .html, .xml. They store human-readable text. Binary file formats like .jpg, .mp3, .exe contain data that isn't human-readable without appropriate software to interpret it.
+-> File extensions are often associated with specific file formats, helping the operating system or software determine how to open and handle the file.
+-> File encoding involves the transformation of data into a specific format to transfer data between systems to ensure that text appears the same regardless of the software or platform being used.
+-> File encoding refers to the way data is represented as bytes in a file. When dealing with text files, encoding determines how characters are translated into bytes.
+-> Encoding is easy to decode by knowing the schema. But, the primary purpose of encryption is to protect data with key & hard to decrypt without key.
+-> Common encoding schemes include ASCII (which uses 7 bits per character and can represent 128 characters), UTF-8 (which can represent any character in the Unicode standard using one to four bytes), UTF-16, base64 etc.
+-> Encoding is about adapting data to fit the requirements of different systems or environments, ensuring it can be transmitted, stored, or processed without errors.
+-> Base64 Encoding is particularly useful for converting binary data into a text format that can be safely handled in text-based systems.
+-> Text files are easily readable and editable using standard text editors because they use a character encoding scheme (like UTF-8). Binary files contain data in a format that is not directly readable by humans (e.g., image or executable files).
+-> If you have binary data (like a PDF or a video) and need to store it in a system that only handles text, you can't store it as-is. Encode the binary data into a text format (like Base64) so that it can be safely stored in the database or file. Later, when you retrieve the data, you can decode it back into its original form.
+-> Special characters like <, >, or &, which have specific meanings in HTML. Encode these characters into a safe format that won’t be misinterpreted by the HTML parser. For example, < becomes &lt;, > becomes &gt;
+-> You’re embedding a small image in an email. The image is binary data, but the email client needs everything in text form. So, you convert the image to Base64, which turns it into a long string of text characters, ensuring it can be safely included in the email. In HTML only giving the data URI encoded string also works:
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...">
+
+03. A buffer is a temporary storage area in memory used to hold raw binary data while it’s being transferred from one place to another. This could be between different parts of a program, between devices (like from a disk to RAM), or between processes.
+-> In browser, when watching a video, the browser uses buffers to store chunks of the video data before pushing it to the actual video player. buffers follow FIFO.
+-> Every file in Storage is stored as 0s/1s. So, reading them directly as raw data is faster. That's why NODE.js uses a built-in buffer class to handle this data. That's why it comes as raw binary data when reading with `fs`. That's why we need to tell which encoding it is following to decode the main data.
+-> When showing the binary on screen, we see hexadecimal numbers to make it look small. Like, 'A' is 01000001 & 41.
+-> Reading a file requires decoding & writing requires encoding.
+-> Computers operate on binary data, so everything must eventually be represented as 0s and 1s (binary). Encoding allows us to take complex data (like text, images, or audio) and represent it in a way that can be stored and transmitted effectively.
+-> Different systems and protocols might require data in specific formats. Encoding ensures that data is in the correct format for a particular system or application.
+
+04. In Node.js, there is no Web API layer like in the browser. Instead, V8 uses libuv to manage async I/O operations and other async tasks. libuv then interacts with the OS to perform the actual I/O operation. libuv uses the OS's capabilities to handle these tasks in a non-blocking manner.

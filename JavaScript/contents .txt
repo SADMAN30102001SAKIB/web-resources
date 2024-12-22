@@ -1,0 +1,46 @@
+01. JavaScript = Core JS + Global object & APIs.
+Others(web components, pwa, accessibility, performance, security, testing, wasm, runtimes, typescript).
+
+02. commonJS (sync) vs ESM (async). But commonJS with bundlers can run on browsers.
+
+03. import should have file extensions normally. But import can have no file extensions when using bundler.
+
+04. DOM is an in-memory tree data structure that represents the HTML as a tree of nodes that is stored in the RAM while the browser runs. Each node corresponds to a part of the document, such as elements, attributes, text, and comments. The root of the tree is the document object.
+Document
+├── <!DOCTYPE html> (DocumentType)
+└── <html> (Element)
+    ├── <head> (Element)
+    │   ├── <title> (Element)
+    │   │   └── "Example Page" (Text)
+    │   └── <meta charset="UTF-8"> (Element)
+    └── <body> (Element)
+        ├── <h1> (Element)
+        │   └── "Welcome to the Example Page" (Text)
+        ├── <p> (Element)
+        │   └── "This is a simple paragraph." (Text)
+        └── <div> (Element)
+            └── <a href="https://example.com"> (Element)
+                └── "Visit Example.com" (Text)
+
+05. Browser Architecture:
+-> Blink in Chrome is a rendering engine. It handles parsing, layout, and rendering. Mainly it transforms HTML documents and other resources of a web page into an interactive visual representation on a user's device.
+-> Traditional JavaScript engines used to interpret code line by line, which was quick to start but slower in execution. Modern engines, however, use a combination of interpretation and compiler to optimize performance. This is called Just-In-Time (JIT) compilation. When a script runs, the JavaScript engine may initially interpret it. As the script continues running, the engine identifies "hot" code paths (parts of the code that are executed frequently) and compiles these into machine code for faster execution.
+
+06. JS Code Running Phases:
+-> Creation Phase: During the creation phase of an execution context, JavaScript sets up the scope chain, initializes this, creates the Lexical Environment, and hoists functions and variables.
+-> Execution Phase: The actual execution of the code begins after the creation phase. Variables are assigned values, and function calls are executed.
+
+07. Jargons:
+-> Execution Contexts: JavaScript execution occurs within an "execution context". The two primary contexts are the global context (created when the script first loads) and function contexts (created whenever a function is invoked).
+-> Global Execution Context: Created when the script first runs. Variables and functions defined at the top level are stored here. In the global execution context, this refers to the global object (e.g., window in browsers).
+-> Function Execution Contexts: Created whenever a function is invoked. It includes the function's arguments, local variables, and the this keyword. In a function context, this can refer to different objects depending on how the function is called (e.g., as a method of an object, with call/apply, or as an event handler).
+-> Lexical Environment: Each execution context has a lexical environment, which defines the scope of variables and functions available at that point in the code.
+-> Scope Chain: When resolving a variable, JavaScript looks through the scope chain. The chain starts from the current execution context and moves up through parent contexts until it reaches the global context.
+-> Closures: A closure is created when a function retains access to its lexical environment, even after the function has finished executing. This allows inner functions to access variables from an outer function, even after the outer function has returned.
+-> Heap: The heap is used for memory allocation, where objects are stored.
+-> Call Stack: JavaScript is single-threaded, meaning it can execute one task at a time. Hence it has one call stack. When a function is called, an execution context is created and pushed onto the stack. When the function completes, its context is popped off the stack. Modern JavaScript engines optimize recursive functions by eliminating the need to keep adding to the call stack if the last action of a function is to call another function (a tail call). This optimization can prevent stack overflow errors in deep recursion.
+-> Event Loop: It handles asynchronous tasks, such as events, timers, and network requests, by queuing them in the callback queue and pushing them when the call stack is empty.
+-> Macrotask Queue: Asynchronous tasks (e.g., setTimeout, navigation) place their callbacks in the callback queue. The event loop checks this queue and pushes callbacks to the call stack when both the stack & microtask queue is clear.
+-> Microtask Queue: promise based callbacks use a separate microtask queue, which is processed before the macrotask queue once the call stack is empty.
+
+08. ES modules (import and export) have their own execution contexts and are executed in strict mode (helps catch common coding mistakes) by default. They are evaluated once, and their exports are cached.

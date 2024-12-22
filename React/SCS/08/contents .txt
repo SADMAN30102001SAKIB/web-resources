@@ -1,0 +1,2 @@
+1. If useState take an object, then to change it's value, we must put an object type in it's setter. (ex: setValue({...obj, bool: !obj.value}))
+2. setValue can take function with previous value as a parameter.
